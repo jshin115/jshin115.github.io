@@ -3,75 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="신지엽의 개인 페이지. 비즈니스, 투자, 그리고 AI를 배우고 연결합니다.">
   <meta name="color-scheme" content="light">
-  <title>신지엽 · Jiyeop Shin</title>
+  <title>신지엽 | Jiyeop Shin — Portfolio</title>
+  <meta name="description" content="신지엽의 포트폴리오. 투자와 사후관리 과정에서 만난 기업들의 제품과 사업모델을 소개합니다.">
   <style>
-    :root{--bg:#f5f4ef;--ink:#1d2420;--muted:#626a63;--line:#d8dcd3;--accent:#386343}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.75;word-break:keep-all}
-    a{color:inherit;text-decoration:none}
-    a:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
-    .wrap{max-width:1040px;margin:auto;padding:0 48px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--line);gap:20px}
-    .mark{font-size:18px;font-weight:750;letter-spacing:-.05em}
-    .small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1.5fr 1fr;align-items:center;gap:48px;padding:76px 0 64px}
-    .eyebrow{margin:0 0 22px;font-size:12px;letter-spacing:.12em;color:var(--accent);font-weight:700}
-    h1{margin:0;font-size:clamp(44px,7vw,68px);font-weight:700;letter-spacing:-.055em;line-height:1.25}
-    .english{display:block;margin-top:12px;font-size:21px;font-weight:400;letter-spacing:-.02em;color:var(--muted)}
-    .intro{margin:28px 0 0;max-width:440px;font-size:16px;line-height:1.95;color:#465047}
-    .art{aspect-ratio:1;background:#e5e9df;border-radius:50% 50% 8px 8px;display:grid;place-items:center;overflow:hidden}
-    .art svg{width:86%;height:86%}
-    .section{border-top:1px solid var(--line);padding:28px 0 35px;display:grid;grid-template-columns:180px 1fr;gap:32px}
-    h2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:3px 0;color:var(--muted);font-weight:600}
-    .interests{display:flex;flex-wrap:wrap;gap:10px}
-    .interest{border:1px solid #cbd3c5;border-radius:24px;padding:6px 15px;font-size:14px}
-    .links{display:flex;flex-wrap:wrap;gap:24px}
-    .links a{border-bottom:1px solid var(--ink);padding-bottom:3px;font-size:15px}
-    .links a:hover{color:var(--accent);border-color:var(--accent)}
-    footer{padding:26px 0 32px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
-    @media(max-width:640px){.wrap{padding:0 24px}header{padding:22px 0}.small{font-size:10px;letter-spacing:.06em}.hero{grid-template-columns:1fr;gap:32px;padding:42px 0}.intro{font-size:15px;margin-top:24px}.art{width:min(100%,260px);justify-self:center}.section{grid-template-columns:1fr;gap:16px;padding:24px 0}.english{font-size:20px}.eyebrow{margin-bottom:18px}}
-    @media(prefers-reduced-motion:no-preference){a{transition:color .15s}}
+    :root { --paper: #fff; --ink: #202020; --secondary: #5d5d5d; --quiet: #757575; --line: #d8d8d5; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 40px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif; -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: anywhere; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid #222; outline-offset: 6px; }
+    ::selection { background: #e4e4e1; }
+    .page { max-width: 1328px; margin: 0 auto; padding: 0 72px; }
+    .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 36px 0; border-bottom: 1px solid var(--line); }
+    .name { font-size: 14px; font-weight: 600; letter-spacing: .035em; }
+    .masthead nav { display: flex; gap: 32px; color: var(--secondary); font-size: 12px; }
+    .masthead a:hover, .index a:hover, .company-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+    .hero { padding: 91px 0 65px; }
+    .hero h1 { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: clamp(76px, 9.3vw, 126px); font-weight: 400; line-height: 1; letter-spacing: -.065em; }
+    .hero-bottom { margin-top: 37px; display: grid; grid-template-columns: 1fr 1.8fr; column-gap: 80px; align-items: start; }
+    .hero-name { margin: 3px 0 0; font-size: 13px; line-height: 1.7; color: var(--quiet); }
+    .hero-intro { margin: 0; max-width: 540px; font-size: 18px; line-height: 1.8; letter-spacing: -.025em; }
+    .index { display: grid; grid-template-columns: 1fr 1.8fr; column-gap: 80px; padding: 25px 0 28px; border-top: 1px solid var(--line); }
+    .index-label { margin: 1px 0 0; color: var(--quiet); font-size: 11px; line-height: 2; letter-spacing: .075em; }
+    .index-links { display: flex; flex-wrap: wrap; gap: 12px 25px; font-size: 12px; line-height: 1.8; color: var(--secondary); }
+    .index-links a { white-space: nowrap; }
+    .company { display: grid; grid-template-columns: 1fr 1.8fr; column-gap: 80px; border-top: 1px solid var(--line); padding: 65px 0 70px; }
+    .identity { min-width: 0; padding-top: 6px; }
+    .identity h2 { font-size: 25px; line-height: 1.3; font-weight: 500; letter-spacing: -.055em; margin: 0; }
+    .identity .name-en { display: block; font-family: Arial, Helvetica, sans-serif; letter-spacing: -.025em; }
+    .identity .sector { margin: 25px 0 0; color: var(--quiet); font-size: 11px; line-height: 1.8; letter-spacing: .005em; }
+    .brand-image { display: block; height: auto; width: 218px; max-width: 100%; }
+    .brand-vedivero { padding-top: 5px; }
+    .brand-laundry { width: 205px; max-width: 100%; }
+    .brand-laundry img { display: block; width: 100%; height: auto; }
+    .brand-dn { width: 182px; height: 24px; background: url('data:image/png;base64,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') 0 0 / 500px 500px no-repeat; filter: grayscale(1); }
+    .company-copy { min-width: 0; }
+    .company-copy h3 { margin: 0 0 27px; max-width: 590px; font-size: 27px; font-weight: 450; line-height: 1.5; letter-spacing: -.045em; }
+    .company-copy p { margin: 0 0 19px; font-size: 15px; line-height: 1.95; color: var(--secondary); letter-spacing: -.015em; }
+    .company-link { display: inline-block; margin-top: 7px; font-size: 11px; line-height: 2; color: var(--quiet); }
+    .company-link span { margin-left: 6px; }
+    .company-links { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+    .company-copy p { line-height: 1.85; }
+    .footer { display: flex; justify-content: space-between; gap: 30px; padding: 27px 0 43px; border-top: 1px solid var(--line); color: var(--quiet); font-size: 10px; line-height: 1.9; }
+    .footer p { margin: 0; }
+    .footer p:last-child { text-align: right; max-width: 480px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .skip { position: absolute; left: 15px; top: -100px; background: white; padding: 12px; z-index: 10; }
+    .skip:focus { top: 15px; }
+    @media (max-width: 1000px) {
+      .page { padding: 0 42px; }
+      .hero-bottom, .index, .company { grid-template-columns: 1fr 2fr; column-gap: 45px; }
+      .company-copy h3 { font-size: 24px; }
+      .identity h2 { font-size: 23px; }
+      .brand-image { max-width: 190px; }
+      .brand-laundry { width: 190px; }
+    }
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 25px; }
+      .page { padding: 0 24px; }
+      .masthead { padding: 25px 0; }
+      .name { font-size: 12px; letter-spacing: .02em; }
+      .masthead nav { font-size: 11px; gap: 18px; }
+      .hero { padding: 65px 0 40px; }
+      .hero h1 { font-size: clamp(70px, 16.5vw, 112px); }
+      .hero-bottom { display: block; margin-top: 29px; }
+      .hero-name { margin: 0 0 15px; font-size: 11px; }
+      .hero-intro { max-width: 450px; font-size: 16px; line-height: 1.85; }
+      .index { display: block; padding: 21px 0 25px; }
+      .index-label { margin-bottom: 13px; font-size: 10px; }
+      .index-links { gap: 11px 20px; font-size: 11px; }
+      .company { display: block; padding: 40px 0 46px; }
+      .identity { padding-top: 0; margin-bottom: 29px; }
+      .identity h2 { font-size: 25px; }
+      .identity .sector { margin-top: 12px; font-size: 10px; }
+      .brand-image { width: 202px; max-width: 100%; }
+      .brand-laundry { width: 202px; }
+      .company-copy h3 { font-size: 23px; line-height: 1.5; margin-bottom: 23px; }
+      .company-copy p { font-size: 14px; line-height: 1.95; margin-bottom: 18px; }
+      .company-link { margin-top: 5px; }
+      .footer { display: block; padding: 23px 0 32px; }
+      .footer p:last-child { margin-top: 11px; text-align: left; }
+    }
+    @media (max-width: 370px) {
+      .page { padding: 0 20px; }
+      .masthead nav { gap: 13px; }
+      .hero h1 { font-size: 66px; }
+      .company-copy h3 { font-size: 22px; }
+      .company-copy p { font-size: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .page { max-width: none; padding: 0; }
+      .hero { padding: 35px 0; }
+      .hero h1 { font-size: 70px; }
+      .index, .masthead nav { display: none; }
+      .company { padding: 35px 0; break-inside: avoid; }
+      a { color: inherit; }
+    }
+    .work-note { display:flex; flex-wrap:wrap; gap:4px 14px; padding:14px 0; margin:0; border-bottom:1px solid var(--line); color:var(--secondary); font-size:12px; line-height:1.7; }
+    .work-note strong { color:var(--ink); font-weight:600; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="mark" href="#main" aria-label="본문으로 이동">J. SHIN</a>
-      <span class="small">A personal page</span>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <div class="page">
+    <header class="masthead">
+      <a class="name" href="#main">JIYEOP SHIN</a>
+      <nav aria-label="주요 메뉴"><a href="#companies">Companies</a><a href="https://github.com/jshin115" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav>
     </header>
+    <aside class="work-note" aria-label="페이지 작성 상태"><strong>작성 중</strong><span>기업 소개와 디자인을 보완하고 있습니다.</span></aside>
     <main id="main">
-      <section class="hero" aria-labelledby="name">
-        <div>
-          <p class="eyebrow">BUSINESS · INVESTMENT · AI</p>
-          <h1 id="name">신지엽<span class="english" lang="en">Jiyeop Shin</span></h1>
-          <p class="intro">기업을 이해하고 투자하는 일을 합니다.<br>AI를 배우며, 아이디어를 직접 만들어 보고 있습니다.<br>작지만 실제로 쓰이는 서비스를 만들고 싶습니다.</p>
-        </div>
-        <div class="art">
-          <svg viewBox="0 0 300 300" role="img" aria-labelledby="art-title">
-            <title id="art-title">배움과 연결을 표현한 추상 일러스트</title>
-            <circle cx="151" cy="150" r="104" fill="none" stroke="#b7c3ad" stroke-width="1"/>
-            <circle cx="151" cy="150" r="69" fill="none" stroke="#b7c3ad" stroke-width="1"/>
-            <path d="M67 211 150 76 235 210Z" fill="none" stroke="#386343" stroke-width="2"/>
-            <path d="M67 211 151 150 235 210M150 76 151 150" fill="none" stroke="#386343" stroke-width="2"/>
-            <circle cx="150" cy="76" r="18" fill="#386343"/>
-            <circle cx="67" cy="211" r="18" fill="#9cac8b"/>
-            <circle cx="235" cy="210" r="18" fill="#657958"/>
-            <circle cx="151" cy="150" r="10" fill="#f5f4ef" stroke="#386343" stroke-width="2"/>
-          </svg>
-        </div>
+      <section class="hero" aria-labelledby="title">
+        <h1 id="title">Portfolio</h1>
+        <div class="hero-bottom"><p class="hero-name">신지엽 · Jiyeop Shin</p><p class="hero-intro">투자와 사후관리 과정에서 만난 기업들의 사업을 소개합니다.</p></div>
       </section>
-      <section class="section" aria-labelledby="interests-title">
-        <h2 id="interests-title">관심 있는 것</h2>
-        <div class="interests"><span class="interest">기업과 사업모델</span><span class="interest">AI의 실무 활용</span><span class="interest">서비스 만들기</span></div>
-      </section>
-      <section class="section" aria-labelledby="links-title">
-        <h2 id="links-title">연결하기</h2>
-        <div class="links"><a href="https://github.com/jshin115">GitHub ↗</a></div>
-      </section>
+      <nav class="index" aria-label="회사 바로가기" id="companies">
+        <p class="index-label">COMPANIES</p>
+        <div class="index-links"><a href="#adp">ADP그린</a><a href="#laundrygo">런드리고</a><a href="#hnb">H&amp;B아시아</a><a href="#koa">코아오토모티브</a><a href="#olix">올릭스</a><a href="#vedivero">베디베로</a><a href="#dn">DN솔루션즈</a><a href="#flotron">플로트론</a></div>
+      </nav>
+      <article class="company" id="adp">
+        <div class="identity"><h2>ADP그린</h2><p class="sector">환경 · 자원순환</p></div>
+        <div class="company-copy"><h3>음식물류폐기물 처리와<br>바이오가스 생산을 결합한 환경 인프라</h3><p>ADP그린은 경기도 연천에 기반을 둔 음식물류폐기물 처리 기업입니다. 음식물폐기물의 처리와 그 과정에서 발생하는 바이오가스의 생산·판매를 주요 사업으로 운영합니다.</p><p>폐기물을 처리하는 시설에 에너지 회수 기능을 결합한 사업 구조입니다. 생활에서 발생하는 유기성 폐자원을 처리하면서 이를 다시 에너지원으로 활용하는 자원순환 영역에 자리하고 있습니다.</p><div class="company-links"><a class="company-link" href="https://www.fnnews.com/news/202311170814033752" target="_blank" rel="noopener noreferrer">기업 관련 보도 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="laundrygo">
+        <div class="identity"><h2 class="sr-only">의식주컴퍼니 · 런드리고</h2><div class="brand-laundry"><img src="data:image/png;base64,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" alt="의식주컴퍼니"></div><p class="sector">의식주컴퍼니 · 런드리고 · 생활 서비스</p></div>
+        <div class="company-copy"><h3>수거·세탁·배송을 연결하는<br>모바일 세탁 서비스와 스마트팩토리</h3><p>의식주컴퍼니는 모바일 세탁 서비스 런드리고를 운영합니다. 고객이 앱에서 수거를 신청하면 세탁물을 문 앞에서 가져가 세탁·수선 후 다시 배송하며, 생활빨래부터 드라이클리닝·이불·운동화까지 일상의 다양한 세탁 수요를 다룹니다.</p><p>세탁 스마트팩토리와 수거·배송망을 연결하고, 무인 세탁소 런드리24와 호텔·기업 대상 B2B 세탁으로 사업을 넓혔습니다. 스마트팩토리의 설계·설비 조달·건설을 수행하는 EPC 사업도 운영해 고객 서비스와 세탁 생산 인프라를 함께 구축하고 있습니다.</p><div class="company-links"><a class="company-link" href="https://www.laundrygo.com/" target="_blank" rel="noopener noreferrer">회사 소개 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="hnb">
+        <div class="identity"><h2>H&amp;B아시아</h2><p class="sector">푸드 · 과일 품종 IP</p></div>
+        <div class="company-copy"><h3>품종 도입부터 생산·유통까지<br>연결하는 프리미엄 과일 사업</h3><p>H&amp;B아시아는 프리미엄 과일의 품종 도입부터 생산·수입·유통까지 연결하는 기업입니다. 엔비사과 등 차별화된 품종을 국내 시장에 소개하고, 해외 생산자·품종 권리자와 국내 재배 및 판매 채널을 연결합니다.</p><p>클럽품종 사업은 품종의 공급, 재배기술, 품질 기준과 유통을 함께 관리하는 방식입니다. 여기에 신선과일의 소포장·물류·품질관리 기능을 결합해, 품종이 가진 특성을 소비자가 구매하는 상품으로 구현합니다.</p><div class="company-links"><a class="company-link" href="https://hnbasia.kr/32" target="_blank" rel="noopener noreferrer">품종 사업 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://hnbasia.kr/34" target="_blank" rel="noopener noreferrer">물류·유통 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="koa">
+        <div class="identity"><h2>코아오토모티브</h2><p class="sector">모빌리티 · 모터 핵심 부품</p></div>
+        <div class="company-copy"><h3>전기차와 가전용 모터를 위한<br>모터코어 제조</h3><p>코아오토모티브는 전기차와 가전제품 등에 사용되는 모터코어를 생산하는 기업입니다. 자동차용 모터와 소형 가전 등 다양한 모터 응용 분야를 대상으로 제품을 개발·제조합니다.</p><p>모터코어 생산 경험을 기반으로 금형과 적층 등 제조공정을 다루며, 한국·중국·멕시코의 생산거점을 통해 고객의 공급망에 대응합니다. 모터 및 구동 관련 연구개발과 양산 기반을 함께 갖춘 제조 기업입니다.</p><div class="company-links"><a class="company-link" href="https://koaautomotive.com/" target="_blank" rel="noopener noreferrer">제품·생산거점 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://koaautomotive.com/bbs/page.php?hid=lab_about" target="_blank" rel="noopener noreferrer">연구개발 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="olix">
+        <div class="identity"><h2>올릭스</h2><p class="sector">바이오 · RNA 치료제</p></div>
+        <div class="company-copy"><h3>RNA 간섭 기술에 기반한<br>신약 플랫폼과 공동개발</h3><p>올릭스는 RNA 간섭(RNAi) 기술을 이용해 질환과 관련된 유전자의 발현을 억제하는 신약을 개발합니다. 자체 비대칭 siRNA와 전달기술을 기반으로 치료 후보물질을 설계하며, 표적 조직으로 RNA를 전달하는 기술을 함께 연구합니다.</p><p>플랫폼을 활용한 후보물질 개발에 기술이전과 공동개발을 결합한 사업모델입니다. 일라이릴리와는 MASH·비만 치료제 후보물질을, 로레알과는 피부·모발 분야를 대상으로 협력하는 등 외부 파트너와 연구개발을 이어가고 있습니다.</p><div class="company-links"><a class="company-link" href="https://olixpharma.com/rnd/rnd02.php" target="_blank" rel="noopener noreferrer">핵심 기술 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://olixpharma.com/rnd/rnd05.php" target="_blank" rel="noopener noreferrer">기술이전·공동개발 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="vedivero">
+        <div class="identity"><h2 class="sr-only">베디베로</h2><img class="brand-image brand-vedivero" src="data:image/png;base64,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" alt="VEDIVERO"><p class="sector">소비재 · 아이웨어</p></div>
+        <div class="company-copy"><h3>선글라스와 안경테를 중심으로<br>전개하는 아이웨어 브랜드</h3><p>베디베로는 선글라스와 안경테를 중심으로 아이웨어를 전개하는 브랜드입니다. 유러피안 감성을 바탕으로 클래식한 형태와 현대적인 디테일을 조합하며, 다양한 일상과 스타일에 맞는 컬렉션을 선보입니다.</p><p>제품의 형태·소재·착용감을 다루는 디자인과 브랜드 표현을 함께 발전시킵니다. 공식 온라인 스토어와 오프라인 판매처를 통해 선글라스 및 도수용 안경테 제품군을 소비자에게 제공합니다.</p><div class="company-links"><a class="company-link" href="https://www.vedivero.co.kr/shopinfo/brand_identity.html" target="_blank" rel="noopener noreferrer">브랜드 소개 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://www.vedivero.co.kr/" target="_blank" rel="noopener noreferrer">컬렉션 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="dn">
+        <div class="identity"><h2 class="sr-only">DN솔루션즈</h2><div class="brand-dn" role="img" aria-label="DN Solutions"></div><p class="sector">산업재 · 공작기계</p></div>
+        <div class="company-copy"><h3>정밀 가공 장비와 자동화를<br>결합한 제조 솔루션</h3><p>DN솔루션즈는 금속 부품의 정밀 가공에 사용되는 공작기계와 제조 솔루션을 공급합니다. 터닝센터·머시닝센터·5축 및 복합가공 장비 등 폭넓은 제품군을 갖추고, 자동차·항공·에너지·금형 등 여러 산업의 가공 수요에 대응합니다.</p><p>장비 공급에 로봇 자동화, 가공 소프트웨어와 고객별 공정 설계를 결합합니다. 부품의 형상과 생산 조건에 맞춘 가공·자동화 솔루션을 통해 고객이 제조 공정 전반을 구성할 수 있도록 지원합니다.</p><div class="company-links"><a class="company-link" href="https://www.dn-solutions.com/kr/contents/company-dnsolutions.do" target="_blank" rel="noopener noreferrer">제품·회사 소개 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://dn-solutions.com/kr/contents/solution.do" target="_blank" rel="noopener noreferrer">제조 솔루션 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
+      <article class="company" id="flotron">
+        <div class="identity"><h2>플로트론</h2><p class="sector">산업재 · 유량계측</p></div>
+        <div class="company-copy"><h3>산업용 유량계와<br>측정·교정 시스템</h3><p>플로트론은 액체와 기체의 흐름을 측정하는 유량계와 유량계측 시스템을 개발·공급합니다. 개별 계측기뿐 아니라 유체의 입출하 과정에서 흐름을 측정하고 관리하는 미터링 시스템을 다룹니다.</p><p>유량계의 정확도를 확인하는 Proving System과 교정장비도 주요 사업 영역입니다. 유량계측 연구소의 센서·전자 및 응용 소프트웨어 기술을 바탕으로 산업 현장의 측정 조건에 맞는 장비와 시스템을 설계합니다.</p><div class="company-links"><a class="company-link" href="https://www.flotron.co.kr/" target="_blank" rel="noopener noreferrer">제품·솔루션 <span aria-hidden="true">↗</span></a><a class="company-link" href="https://www.flotron.co.kr/rd/measurement/" target="_blank" rel="noopener noreferrer">유량계측연구소 <span aria-hidden="true">↗</span></a></div></div>
+      </article>
     </main>
-    <footer>© 2026 Jiyeop Shin</footer>
+    <footer class="footer"><p>© 2026 Jiyeop Shin</p><p>개인의 투자·사후관리 경험과 연결된 기업 소개입니다.<br>기업 정보는 공식 소개와 공개자료를 바탕으로 정리했습니다.<br>기업 로고의 권리는 각 회사에 있습니다.</p></footer>
   </div>
 </body>
 </html>
